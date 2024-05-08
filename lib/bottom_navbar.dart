@@ -29,8 +29,8 @@ class _BottomNavbarState extends State<BottomNavbar> {
       body: screens[currentIndex],
       bottomNavigationBar: GNav(
         tabs: [
-          GButton(icon: MingCu.),
-          GButton(icon: IonIcons.),
+          // GButton(icon: MingCu.),
+          // GButton(icon: IonIcons.),
           GButton(icon: IonIcons.home),
           GButton(icon: IonIcons.home),
           GButton(icon: IonIcons.home),
