@@ -4,6 +4,7 @@ import 'package:slashcom/pages/cart.dart';
 import 'package:slashcom/pages/login_regis/login.dart';
 import 'package:slashcom/pages/login_regis/regis.dart';
 import 'package:slashcom/pages/news.dart';
+import 'package:slashcom/pages/payment_page.dart';
 import 'package:slashcom/pages/profile.dart';
 import 'package:slashcom/pages/sell.dart';
 import 'package:slashcom/pages/voucher.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         '/news': (context) => const NewsPage(),
         '/cart': (context) => const CartPage(),
         '/profile': (context) => const ProfilePage(),
+        '/payment': (context) => const PaymentPage(),
       },
     );
   }

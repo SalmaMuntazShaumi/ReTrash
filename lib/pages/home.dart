@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:slashcom/pages/component/categories_card.dart';
 import 'package:slashcom/pages/component/product_card.dart';
+import 'package:slashcom/pages/products.dart';
+import 'package:slashcom/pages/sell.dart';
 import 'package:slashcom/theme/app_color.dart';
 import 'package:slashcom/theme/app_text_style.dart';
+
+import 'detail_products.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -36,72 +40,79 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: AppColors.backgrounColor,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: ListView(
-            children: [
-              Container(
-                height: 45,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image.asset('assets/logo_kecil.png',
-                        width: 116, height: 30),
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Image.asset('assets/icons/user_bg.png',
-                              width: 40, height: 40),
-                        ),
-                        SizedBox(width: 8),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Image.asset('assets/icons/bell.png',
-                              width: 24, height: 24),
-                        )
-                      ],
-                    )
-                  ],
-                ),
+        child: ListView(
+          padding: EdgeInsets.symmetric(vertical: 18),
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 18),
+              height: 45,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset('assets/logo_kecil.png',
+                      width: 116, height: 30),
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {},
+                        child: Image.asset('assets/icons/user_bg.png',
+                            width: 40, height: 40),
+                      ),
+                      SizedBox(width: 8),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Image.asset('assets/icons/bell.png',
+                            width: 24, height: 24),
+                      )
+                    ],
+                  )
+                ],
               ),
-              SizedBox(height: 40),
-              Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text('News',
+            ),
+            SizedBox(height: 40),
+            Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                    child: Text('News',
                         style: AppTextStyle.appMediumTextStyle(
                             AppColors.titleTextColor, 18)),
-                    // SizedBox(height: 8),
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 145,
-                      child: PageView.builder(
-                          itemCount: images.length,
-                          pageSnapping: true,
-                          controller: _pageController,
-                          onPageChanged: (page) {
-                            setState(() {
-                              activePage = page;
-                            });
-                          },
-                          itemBuilder: (context, pagePosition) {
-                            bool active = pagePosition == activePage;
-                            return slider(images, pagePosition, active);
-                          }),
-                    ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: indicators(images.length, activePage))
-                  ],
-                ),
+                  ),
+                  // SizedBox(height: 8),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 145,
+                    child: PageView.builder(
+                        itemCount: images.length,
+                        pageSnapping: true,
+                        controller: _pageController,
+                        onPageChanged: (page) {
+                          setState(() {
+                            activePage = page;
+                          });
+                        },
+                        itemBuilder: (context, pagePosition) {
+                          bool active = pagePosition == activePage;
+                          return slider(images, pagePosition, active);
+                        }),
+                  ),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: indicators(images.length, activePage))
+                ],
               ),
-              SizedBox(height: 30),
-              GestureDetector(
-                onTap: () {},
+            ),
+            SizedBox(height: 30),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 18),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SellPage()));
+                },
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
                   height: 68,
@@ -135,8 +146,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              SizedBox(
+            ),
+            SizedBox(height: 20),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 18),
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: [
@@ -147,7 +161,9 @@ class _HomePageState extends State<HomePage> {
                         Text('Products', style: AppTextStyle.appMediumTextStyle(AppColors.titleTextColor, 18)),
                         Spacer(),
                         GestureDetector(
-                          onTap: (){},
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductsPage()));
+                          },
                           child: Row(children: [Text('View All', style: AppTextStyle.appRegulerTextStyle(AppColors.blackColor, 12)), Image.asset('assets/icons/arrow-right.png', height: 15, width: 17)]),
                         )
                       ],
@@ -155,31 +171,35 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              SizedBox(height: 12),
-              Row(
+            ),
+            const SizedBox(height: 12),
+            const Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18.0),
+              child: Row(
                 children: [
                   Expanded(child: OrganicCard()),
                   SizedBox(width: 10),
                   Expanded(child: InorganicCard()),
                 ],
               ),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 190,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                      children: [
-                        ProductCard(imgAssets: 'assets/food_waste_product.png', title: 'Food Waste', desc: 'Recycling food waste can reduce waste in landfills.', price: 'Rp5000'),
-                        SizedBox(width: 10),
-                        ProductCard(imgAssets: 'assets/plastic_bottle.png', title: 'Plastic Bottle', desc: 'Used plastic bottles should be collected for recycling.', price: 'Rp4000'),
-                        SizedBox(width: 10),
-                        ProductCard(imgAssets: 'assets/food_waste_product.png', title: 'Food Waste', desc: 'Recycling food waste can reduce waste in landfills.', price: 'Rp 5000'),
-                        SizedBox(width: 10),
-                      ],
-                    ),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 190,
+              child: ListView(
+                padding: EdgeInsets.symmetric(horizontal: 18),
+                scrollDirection: Axis.horizontal,
+                    children: [
+                      ProductCard(imgAssets: 'assets/food_waste_product.png', title: 'Food Waste', desc: 'Recycling food waste can reduce waste in landfills.', price: 'Rp5000'),
+                      SizedBox(width: 10),
+                      ProductCard(imgAssets: 'assets/plastic_bottle.png', title: 'Plastic Bottle', desc: 'Used plastic bottles should be collected for recycling.', price: 'Rp4000'),
+                      SizedBox(width: 10),
+                      ProductCard(imgAssets: 'assets/food_waste_product.png', title: 'Food Waste', desc: 'Recycling food waste can reduce waste in landfills.', price: 'Rp 5000'),
+                      SizedBox(width: 10),
+                    ],
+                  ),
+            ),
+          ],
         ),
       ),
     );
