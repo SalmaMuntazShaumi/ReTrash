@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:slashcom/bottom_navbar.dart';
+import 'package:slashcom/pages/cart.dart';
+import 'package:slashcom/pages/login_regis/login.dart';
+import 'package:slashcom/pages/login_regis/regis.dart';
+import 'package:slashcom/pages/news.dart';
+import 'package:slashcom/pages/profile.dart';
+import 'package:slashcom/pages/sell.dart';
+import 'package:slashcom/pages/voucher.dart';
 import 'package:slashcom/welcome/splash_screen.dart';
 
 import 'pages/home.dart';
@@ -28,7 +36,21 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
+      // home: const SplashScreen(),
+
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/bottomNav': (context) => const BottomNavbar(),
+        '/home': (context) => const HomePage(),
+        '/voucher': (context) => const VoucherPage(),
+        '/sell': (context) => const SellPage(),
+        '/news': (context) => const NewsPage(),
+        '/cart': (context) => const CartPage(),
+        '/profile': (context) => const ProfilePage(),
+      },
     );
   }
 }
