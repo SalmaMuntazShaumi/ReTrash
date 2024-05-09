@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:slashcom/pages/inorganic_cat_page.dart';
+import 'package:slashcom/pages/organic_cat_page.dart';
 import 'package:slashcom/theme/app_text_style.dart';
 
 class OrganicCard extends StatefulWidget {
@@ -12,7 +14,9 @@ class _OrganicCardState extends State<OrganicCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>OrganicPage()));
+      },
       child: Container(
         padding: EdgeInsets.only(bottom: 10),
         width: 170,
@@ -37,7 +41,9 @@ class _InorganicCardState extends State<InorganicCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>InorganicPage()));
+      },
       child: Container(
         padding: EdgeInsets.only(bottom: 10),
         width: 170,

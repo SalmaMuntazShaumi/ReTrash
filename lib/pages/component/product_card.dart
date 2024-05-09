@@ -5,6 +5,8 @@ import 'package:icons_plus/icons_plus.dart';
 import 'package:slashcom/theme/app_color.dart';
 import 'package:slashcom/theme/app_text_style.dart';
 
+import '../detail_products.dart';
+
 class ProductCard extends StatefulWidget {
   String imgAssets, title, desc, price;
   ProductCard({super.key, required this.imgAssets, required this.title, required this.desc, required this.price});
@@ -17,7 +19,9 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>DetailProducts()));
+      },
       child: Container(
         width: 160,
         height: 190,

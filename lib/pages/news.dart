@@ -16,7 +16,13 @@ class _NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('News'), titleTextStyle: AppTextStyle.appMediumTextStyle(AppColors.titleTextColor, 18), elevation: 0, backgroundColor: AppColors.backgrounColor),
+      appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Text('News'),
+          titleTextStyle:
+              AppTextStyle.appMediumTextStyle(AppColors.titleTextColor, 18),
+          elevation: 0,
+          backgroundColor: AppColors.backgrounColor),
       backgroundColor: AppColors.backgrounColor,
       body: SafeArea(
         child: ListView(
@@ -25,7 +31,7 @@ class _NewsPageState extends State<NewsPage> {
             Row(
               children: [
                 GestureDetector(
-                  onTap: (){},
+                  onTap: () {},
                   child: Container(
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
@@ -44,27 +50,48 @@ class _NewsPageState extends State<NewsPage> {
                         filled: false,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(color: AppColors.blackColor)
-                        ),
-                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 12),
+                            borderSide:
+                                BorderSide(color: AppColors.blackColor)),
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 0, horizontal: 12),
                         hintText: 'Search News',
-                        hintStyle: AppTextStyle.appRegulerTextStyle(Colors.grey, 14),
+                        hintStyle:
+                            AppTextStyle.appRegulerTextStyle(Colors.grey, 14),
                         suffixIcon: Container(
                           padding: EdgeInsets.all(12),
                           child: Image.asset('assets/icons/search.png'),
                           width: 20,
-                        )
-                    ),
+                        )),
                   ),
                 ),
               ],
             ),
             SizedBox(height: 30),
-            Text('Hottest News', style: AppTextStyle.appMediumTextStyle(AppColors.titleTextColor, 18)),
+            Text('Hottest News',
+                style: AppTextStyle.appMediumTextStyle(
+                    AppColors.titleTextColor, 18)),
             SizedBox(height: 18),
-            NewsCard(imgAsset: 'assets/kerajinan.png', title: 'Pengusaha asal Bandung sukses menjual tas dari limbah minuman plastik', date: 'Wednesday, 08 Mei 2024', like: '102', view: '20k'),
-            NewsCard(imgAsset: 'assets/pupuk.png', title: 'Tips dari pemuda asal NTB dalam mengolah pupuk kompos mandiri', date: 'Sunday, 14 February 2024', like: '568', view: '25k'),
-            NewsCard(imgAsset: 'assets/vas.png', title: 'Kreasi vas bunga dari botol plastik yang laku dijual di blok M', date: 'Friday, 29 March 2024', like: '451', view: '21k'),
+            NewsCard(
+                imgAsset: 'assets/kerajinan.png',
+                title:
+                    'Pengusaha asal Bandung sukses menjual tas dari limbah minuman plastik',
+                date: 'Wednesday, 08 Mei 2024',
+                like: '102',
+                view: '20k'),
+            NewsCard(
+                imgAsset: 'assets/pupuk.png',
+                title:
+                    'Tips dari pemuda asal NTB dalam mengolah pupuk kompos mandiri',
+                date: 'Sunday, 14 February 2024',
+                like: '568',
+                view: '25k'),
+            NewsCard(
+                imgAsset: 'assets/vas.png',
+                title:
+                    'Kreasi vas bunga dari botol plastik yang laku dijual di blok M',
+                date: 'Friday, 29 March 2024',
+                like: '451',
+                view: '21k'),
           ],
         ),
       ),
