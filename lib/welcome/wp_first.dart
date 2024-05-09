@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:slashcom/pages/login_regis/login.dart';
 import 'package:slashcom/theme/app_color.dart';
 
 import '../bottom_navbar.dart';
@@ -76,7 +77,7 @@ class _WelcomePageState extends State<WelcomePage> {
         done: GestureDetector(
           onTap: () {
             Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => BottomNavbar()));
+                MaterialPageRoute(builder: (context) => LoginPage()));
           },
           child: Text(
             'Let\'s start',

@@ -21,6 +21,16 @@ class AppTextStyle {
     );
   }
 
+  static appRegulerItalicTextStyle(Color color, double size) {
+    return GoogleFonts.poppins(
+      textStyle: GoogleFonts.poppins(),
+      fontSize: size,
+      fontStyle: FontStyle.italic,
+      fontWeight: FontWeight.w400,
+      color: color,
+    );
+  }
+
   static appMediumTextStyle(Color color, double size) {
     return GoogleFonts.poppins(
         textStyle: GoogleFonts.poppins(),
